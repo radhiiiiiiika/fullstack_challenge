@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFHL Challenge | Hierarchy Processor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header class="header">
+                <h1 class="logo">BFHL Processor</h1>
+                <div class="subtitle">Hierarchical Relationship Analyzer</div>
+            </header>
+
+            <main class="main">
+                <!-- Input Section -->
+                <div class="card input-card">
+                    <div class="card-header">
+                        <h2>Input Data</h2>
+                    </div>
+                    <div class="card-body">
+                        <textarea 
+                            id="nodeInput" 
+                            class="node-input"
+                            placeholder="Example:&#10;A->B&#10;A->C&#10;B->D"
+                            rows="8"
+                        ></textarea>
+                        <div class="input-hint">
+                            <i class="fas fa-info-circle"></i>
+                            Format: X->Y (X and Y must be single uppercase letters A-Z)
+                        </div>
+                        <button id="submitBtn" class="btn-submit">
+                            <i class="fas fa-play" style="margin-right: 8px;"></i>
+                            Process Hierarchy
+                        </button>
+                    </div>
+                </div>
+
+                <div id="loadingIndicator" class="loading-indicator hidden">
+                    <div class="spinner"></div>
+                    <p>Processing...</p>
+                </div>
+
+                <div id="responseSection" class="response-section hidden">
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <div class="summary-label">
+                                <i class="fas fa-tree"></i>
+                                Total Trees
+                            </div>
+                            <div class="summary-value" id="totalTrees">0</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-label">
+                                <i class="fas fa-sync-alt"></i>
+                                Total Cycles
+                            </div>
+                            <div class="summary-value" id="totalCycles">0</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-label">
+                                <i class="fas fa-crown"></i>
+                                Largest Tree Root
+                            </div>
+                            <div class="summary-value" id="largestTree">-</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Identity</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="identity-grid">
+                                <div class="identity-item">
+                                    <span class="identity-label">User ID</span>
+                                    <span class="identity-value" id="userId">-</span>
+                                </div>
+                                <div class="identity-item">
+                                    <span class="identity-label">Email</span>
+                                    <span class="identity-value" id="emailId">-</span>
+                                </div>
+                                <div class="identity-item">
+                                    <span class="identity-label">Roll Number</span>
+                                    <span class="identity-value" id="rollNumber">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Hierarchies</h2>
+                        </div>
+                        <div class="card-body">
+                            <div id="hierarchiesContainer" class="hierarchies-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="two-columns">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Invalid Entries</h2>
+                            </div>
+                            <div class="card-body">
+                                <div id="invalidEntries" class="entries-list"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Duplicate Edges</h2>
+                            </div>
+                            <div class="card-body">
+                                <div id="duplicateEdges" class="entries-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="errorSection" class="error-card hidden">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <h3>Error</h3>
+                        <p id="errorMessage"></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <footer class="footer">
+            <p>© Full Stack Engineering Challenge - Bajaj | SRM</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
