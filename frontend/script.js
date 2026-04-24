@@ -1,5 +1,5 @@
 // API Configuration - UPDATE THIS WITH YOUR BACKEND URL
-const API_BASE_URL = 'http://localhost:3000'; // For local testing
+const API_BASE_URL = 'https://fullstack-challenge-qyoe.vercel.app/'; // For local testing
 // const API_BASE_URL = 'https://your-backend-url.vercel.app'; // For production after deployment
 const API_ENDPOINT = `${API_BASE_URL}/bfhl`;
 
